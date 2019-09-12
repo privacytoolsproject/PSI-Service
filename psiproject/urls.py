@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import re_path, path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from psi_apps.content_pages.views_old import view_about_page
 
 urlpatterns = [
     re_path(r'auth/', include('psi_apps.psi_auth.urls')),
@@ -29,10 +28,6 @@ urlpatterns = [
 
     re_path(r'^flask-custom/',
             include('psi_apps.flask_services.urls')),
-
-    re_path(r'^about$',
-            view_about_page,
-            name='view_about_page'),
 
     re_path(r'^',
             include('psi_apps.content_pages.urls')),

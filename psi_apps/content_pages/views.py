@@ -99,7 +99,6 @@ def application(request):
     """Return the vue application template"""
     info_dict = {
         'FLASK_SVC_URL': settings.FLASK_SVC_URL,
-        'CONTENT_PAGES_BASE_URL': reverse('viewContentPageBase'),
         'USER_NAME': request.user.username
     }
 
@@ -206,3 +205,10 @@ def get_workspace(request):
             "dataset": dataset
         }
     })
+
+
+@login_required(login_url='login')
+def view_monitoring_alive(request):
+    """For kubernetes liveness check"""
+    return JsonResponse(dict(status="ok",
+                             message="PSI python server up"))
