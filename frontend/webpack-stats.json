@@ -1,1 +1,0 @@
-{"status":"error","chunks":{"main":[{"name":"privacy_app.js","path":"/home/shoe/PSI/PSI/frontend/build/privacy_app.js"}]},"error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve '../assets/logo.png' in '/home/shoe/PSI/PSI/frontend/src/components'"}
