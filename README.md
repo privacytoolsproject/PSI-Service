@@ -9,20 +9,20 @@ This is a repository for the frontend, backend, and cloud deployment of the PSI 
 
 ### Initial Setup
 1. Install system dependencies (latest python 3, pdf renderer)  
-       For Mac use brew:
-          brew install python pandoc
-   
-       For Linux use apt-get:
-          apt-get install python pandoc
+       For Mac use brew: `brew install python pandoc`  
+       For Linux use apt-get: `apt-get install python pandoc`
 
-2. Install virtualenvwrapper 
+2. Install virtualenvwrapper   
         For Mac use: `https://stackoverflow.com/a/49528037`
 
 3. Using [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/), create a virtualenv and install Install dependencies:
    
-          mkvirtualenv psi
-          pip install -r requirements/base.txt
+        mkvirtualenv psi
+        pip install -r requirements/base.txt
 
+4. Install npm, then run the command:
+        
+        cd frontend && npm install
 
 ### Run Servers
 1. Start flask:
@@ -48,14 +48,12 @@ This is a repository for the frontend, backend, and cloud deployment of the PSI 
           python manage.py migrate
           python manage.py runserver 8080
 
-Any port other than 8000 can be specified because flask runs on 8000.
+3. In a separate terminal, invoke the virtualenv and start webpack:
 
-To allow communication with Flask, CORS request have to be enabled on your browser:
+          workon psi
+          fab run-frontend
 
-Enabling CORS request to local files on Chrome:
-`google-chrome --disable-web-security --user-data-dir="[path to ../PSI/data]"`
-
-Then PSI page can be brought up as:
+The PSI page can be brought up as:
 http://127.0.0.1:8080
 
 ---
